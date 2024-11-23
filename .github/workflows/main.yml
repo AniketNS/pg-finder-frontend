@@ -8,9 +8,13 @@ on:
 
 jobs:
   build-and-run:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
+      - name: Set up node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
       - name: Run a single comment
         run: echo "Hello World from GitHub-Actions"
       - name: Build the Project
