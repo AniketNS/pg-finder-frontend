@@ -10,23 +10,17 @@ on:
 
 jobs:
   build-and-run:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up node js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      - name: Run a single comment
-        run: echo "Hello World from GitHub-Actions"
-      - name: Build the Project
-        run: npm install
-      - name: Run the Project
-        run: nohup npm run start > app.log 2>&1 &
-        # run: npm run start
+      - name: printing
+        run: echo "Hello From Aniket"
+        
 
-  # run-project:
-  #   runs-on: ubuntu-latest
-  #   steps:
+  run-project:
+    runs-on: ubuntu-latest
+    needs: build-and-run
+    steps:
+      - name: print run project
+        run: echo "Hello from Run Project Job"
       
       
