@@ -20,7 +20,8 @@ jobs:
       - name: Build the Project
         run: npm install
       - name: Run the Project
-        run: npm run start
+        run: nohup npm run start > app.log 2>&1 &
+        # run: npm run start
 
   # run-project:
   #   runs-on: ubuntu-latest
