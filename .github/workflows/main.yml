@@ -12,6 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run a single comment
-        run: echo "Hello World from Github-Actions"
-        
+        run: echo "Hello World from GitHub-Actions"
+      - name: Build the Project
+        run: npm install
+      - name: Run the Project
+        run: npm run start
+
+  # run-project:
+  #   runs-on: ubuntu-latest
+  #   steps:
+      
       
