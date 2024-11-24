@@ -5,7 +5,6 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-    
   workflow_dispatch:
 
 jobs:
@@ -13,10 +12,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
+      - name: Test Docker Access
+        run: docker ps
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      - name: Create an Image
+      - name: Build Docker Image
         run: DOCKER_BUILDKIT=1 docker build -t pg-finder:latest .
-      - name: Create and Run the container
+      - name: Run Docker Container
         run: docker run -d -p 3000:3000 pg-finder:latest
-      
