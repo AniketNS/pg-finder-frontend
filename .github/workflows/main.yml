@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create an Image
-        run: docker build -t pg-finder:latest .
+        run: DOCKER_BUILDKIT=1 docker build -t pg-finder:latest .
       - name: Create and Run the container
         run: docker run -d -p 3000:3000 pg-finder:latest
       
