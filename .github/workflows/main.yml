@@ -17,10 +17,10 @@ jobs:
         run: npm install
         
 
-  run-project:
-    runs-on: self-hosted
-    needs: build-and-run
-    steps:
+  # run-project:
+  #   runs-on: self-hosted
+  #   needs: build-and-run
+  #   steps:
       - name: run the project
         run: nohup npm run start > app.log 2>&1 &
         # run: npm run start
