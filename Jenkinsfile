@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     // Enable BuildKit and build the Docker image
-                    sh 'DOCKER_BUILDKIT=1 docker build -t ${DOCKER_IMAGE} .'
+                    sh 'docker build -t ${DOCKER_IMAGE} .'
                 }
             }
         }
