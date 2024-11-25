@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     // Enable BuildKit and build the Docker image
-                    sh 'npm install'
+                    sh 'docker build -t ${DOCKER_IMAGE} .'
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Run the Docker container
-                    sh 'npm run start'
+                    sh 'docker run -d -p 3000:3000 ${DOCKER_IMAGE}'
                 }
             }
         }
