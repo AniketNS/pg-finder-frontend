@@ -1,25 +1,25 @@
-# name: PG-Finder-Docker
+name: PG-Finder-Docker
 
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-# jobs:
-#   build-and-run:
-#     runs-on: self-hosted
-#     steps:
-#       - uses: actions/checkout@v3
-#       - name: Test Docker Access
-#         run: docker ps
-#       - name: Set up Docker Buildx
-#         uses: docker/setup-buildx-action@v2
-#       - name: Build Docker Image
-#         run: DOCKER_BUILDKIT=1 docker build -t pg-finder:latest .
+jobs:
+  build-and-run:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test Docker Access
+        run: docker ps
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Build Docker Image
+        run: DOCKER_BUILDKIT=1 docker build -t pg-finder:latest .
 
-#   run-app:
-#     runs-on: self-hosted
-#     steps:
-#       - name: Run Docker Container
-#         run: docker run -d -p 3000:3000 pg-finder:latest
+  run-app:
+    runs-on: self-hosted
+    steps:
+      - name: Run Docker Container
+        run: docker run -d -p 3000:3000 pg-finder:latest
